@@ -1,92 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context="com.example.falcon.matchedit.CatogeryMenuActivity"
-    android:orientation="vertical">
+<com.nightonke.boommenu.BoomMenuButton
+    android:id="@+id/bmb3"
+    android:layout_width="50dp"
+    app:bmb_cacheOptimization="true"
 
+    android:layout_height="50dp"
+    android:src="@drawable/ic_launcher_round"
+    app:bmb_normalColor="#fcfcfc"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:text="Animal"
-            android:id="@+id/animal_catogery"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <Button
-            android:text="Flower"
-            android:id="@+id/flower_catogery"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:text="Birds"
-            android:id="@+id/birds_catogery"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <Button
-            android:text="Fish"
-            android:id="@+id/fish_catogery"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/nnn" />
+    </com.nightonke.boommenu.BoomMenuButton>
 
 
 
 
-    </LinearLayout>
-    <LinearLayout
-
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:text="Animal"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <Button
-            android:text="Animal"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
 
 
-    </LinearLayout>
-
-
-
-
-</LinearLayout>

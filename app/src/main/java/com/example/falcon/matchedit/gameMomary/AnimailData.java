@@ -13,14 +13,14 @@ import java.util.Random;
 public class AnimailData {
     ArrayList<ImagReTag> aimalArray =new ArrayList<>();
 
-    ImagReTag image1 = new ImagReTag(R.drawable.one,"bird");
-    ImagReTag image2 = new ImagReTag(R.drawable.two,"bee");
-    ImagReTag image3 = new ImagReTag(R.drawable.three,"elephant");
-    ImagReTag image4 = new ImagReTag(R.drawable.foure,"rabbit");
-    ImagReTag image5 = new ImagReTag(R.drawable.five,"fox");
-    ImagReTag image6 = new ImagReTag(R.drawable.ten,"rabiite");
-    ImagReTag image7 = new ImagReTag(R.drawable.seven,"batot");
-    ImagReTag image8 = new ImagReTag(R.drawable.eight,"cat");
+    ImagReTag image1 = new ImagReTag(R.drawable.biird,"bird");
+    ImagReTag image2 = new ImagReTag(R.drawable.bee,"bee");
+    ImagReTag image3 = new ImagReTag(R.drawable.elephant,"elephant");
+    ImagReTag image4 = new ImagReTag(R.drawable.rabite,"rabbit");
+    ImagReTag image5 = new ImagReTag(R.drawable.fox,"fox");
+    ImagReTag image6 = new ImagReTag(R.drawable.batot,"rabbite");
+    ImagReTag image7 = new ImagReTag(R.drawable.rrabit,"batot");
+    ImagReTag image8 = new ImagReTag(R.drawable.cat,"cat");
 
 
     ImagReTag [] arraImagRtage ={image1,image2,image3,image4,image5,image6,image7,image8};

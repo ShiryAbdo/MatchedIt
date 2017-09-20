@@ -10,15 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".CatogeryMenuActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".CatogeryMenuActivity" />
         <activity android:name=".animals.OneImagMatch" />
+
+        <activity android:name=".CustomPositionActivity" >
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity android:name=".animals.TwoImageMatch" />
         <activity android:name=".animals.ThreeImageMatch" />
         <activity android:name=".animals.FourImageMatch"></activity>
