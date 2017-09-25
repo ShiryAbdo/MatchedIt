@@ -508,7 +508,7 @@ public class MainActivity extends AppCompatActivity {
 
                      view = (ImageView) event.getLocalState();
                     if(view!=null)
-                    view.setVisibility(View.VISIBLE);
+                    view.setVisibility(View.GONE);
 
 
 
@@ -691,9 +691,9 @@ public class MainActivity extends AppCompatActivity {
 //
 
                 case DragEvent.ACTION_DRAG_ENDED:
-                    if(view!=null){
-                        view.setVisibility(View.VISIBLE);
-                    }
+//                    if(view!=null){
+                        view.setVisibility(View.GONE);
+//                    }
 
 //                      Toast.makeText(getApplicationContext(),"ended",Toast.LENGTH_SHORT).show();
 
