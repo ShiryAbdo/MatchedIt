@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.example.falcon.matchedit.SplashActivity">
+
+
 
 </android.support.constraint.ConstraintLayout>

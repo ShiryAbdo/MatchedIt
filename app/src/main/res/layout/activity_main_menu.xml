@@ -1,20 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.nightonke.boommenu.BoomMenuButton
-    android:id="@+id/bmb3"
-    android:layout_width="50dp"
-    app:bmb_cacheOptimization="true"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+ android:layout_width="match_parent"
+    android:gravity="center"
 
-    android:layout_height="50dp"
-    android:src="@drawable/ic_launcher_round"
-    app:bmb_normalColor="#fcfcfc"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<LinearLayout
+    android:background="@drawable/background"
+    android:layout_width="match_parent"
+    android:id="@+id/liner"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_marginTop="@dimen/_150sdp"
+        android:textSize="@dimen/_30sdp"
+        android:textColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:text="Start to play with us"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/bmb3"
+        android:layout_marginTop="@dimen/_130sdp"
+         android:layout_width="50dp"
+         app:bmb_cacheOptimization="true"
+        android:layout_gravity="center|bottom"
+        android:layout_height="50dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/nnn" />
+            android:src="@drawable/gogo" />
     </com.nightonke.boommenu.BoomMenuButton>
+    <Button
+        android:id="@+id/ide"
+        android:visibility="gone"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="click"/>
+
+</LinearLayout>
+
+
+
+</LinearLayout>
 
 
 

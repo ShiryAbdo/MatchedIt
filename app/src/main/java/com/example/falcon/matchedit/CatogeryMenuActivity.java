@@ -3,11 +3,13 @@ package com.example.falcon.matchedit;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PointF;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,15 +29,32 @@ public class CatogeryMenuActivity extends AppCompatActivity {
     Button animal_catogery ,birds_catogery ;
     String catogery;
     String cATOGERYtWO,NUMBERcatogery;
-    private BoomMenuButton bmb;
+    BoomMenuButton bmb;
+    Handler mHandler;
+    Button clicke;
+    LinearLayout linearLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        mHandler = new Handler();
+        clicke=(Button)findViewById(R.id.ide);
+        clicke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                catogery="animal_catogery";
+                Intent  intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                intent.putExtra("catogery",catogery);
+                startActivity(intent);
+                finish();
+            }
+        });
         initializeBmb3();
+
+
 
 
 
@@ -44,7 +63,7 @@ public class CatogeryMenuActivity extends AppCompatActivity {
     }
 
     private void initializeBmb3() {
-        BoomMenuButton bmb = (BoomMenuButton) findViewById(R.id.bmb3);
+        bmb = (BoomMenuButton) findViewById(R.id.bmb3);
         bmb.setButtonEnum(ButtonEnum.TextOutsideCircle);
 //
          bmb.setHighlightedColor(Color.BLUE);
@@ -89,77 +108,98 @@ public class CatogeryMenuActivity extends AppCompatActivity {
         bmb.setOnBoomListener(new OnBoomListener() {
             @Override
             public void onClicked(int index, BoomButton boomButton) {
-//                changeBoomButton(index);
-                Toast.makeText(getApplicationContext(), "Clicked " + index, Toast.LENGTH_SHORT).show();
+                Intent intent;
 
-                if (index==0){
-                    catogery="animal_catogery";
-                     Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery",catogery);
-                    startActivity(intent);
-                    finish();
 
+            switch (index) {
+                    case 0:
+
+
+                        mHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+
+
+                                catogery="animal_catogery";
+                                Intent  intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                                intent.putExtra("catogery",catogery);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }, 300);
+//                        catogery="animal_catogery";
+//                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+//                        intent.putExtra("catogery",catogery);
+//                        startActivity(intent);
+//                        finish();
+
+                        break;
+                    case 1:
+                        cATOGERYtWO="birds_catogery";
+                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                        intent.putExtra("catogery",cATOGERYtWO);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case 2:
+                        catogery="flawer_catogery";
+                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                        intent.putExtra("catogery",catogery);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case 3:
+
+                        catogery="Butterfly_catogery";
+                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                        intent.putExtra("catogery",catogery);
+                        startActivity(intent);
+                        finish();
+                        break;
+
+                    case 4:
+
+                        catogery="animal_catogery";
+                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                        intent.putExtra("catogery",catogery);
+                        startActivity(intent);
+                        finish();
+                        break;
+
+                    case 5:
+                        catogery="animal_catogery";
+                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                        intent.putExtra("catogery",catogery);
+                        startActivity(intent);
+                        finish();
+                        break;
+
+                    case 6:
+                        String NEWcTOGerY="numbers_catogery";
+                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                        intent.putExtra("catogery","numbers_catogery");
+                        startActivity(intent);
+                        finish();
+                        break;
+
+                    case 7:
+                        catogery="animal_catogery";
+                        intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
+                        intent.putExtra("catogery",catogery);
+                        startActivity(intent);
+                        finish();
+                        break;
+
+                    case 8:  System.out.println("September"); break;
+                    case 9: System.out.println("October"); break;
+                    case 10: System.out.println("November"); break;
+                    case 11: System.out.println("December"); break;
+                    default: System.out.println("Invalid month.");break;
                 }
 
 
-                if (index==1){
-                    cATOGERYtWO="birds_catogery";
-                    Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery",cATOGERYtWO);
-                    startActivity(intent);
+//
 
-                }
-                if (index==2){
-                    catogery="flawer_catogery";
-//                Toast.makeText(CatogeryMenuActivity.this,catogery,Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery",catogery);
-                    startActivity(intent);
-
-                }
-                if (index==3){
-                    catogery="Butterfly_catogery";
-//                Toast.makeText(CatogeryMenuActivity.this,catogery,Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery",catogery);
-                    startActivity(intent);
-
-                }
-                if (index==4){
-                    catogery="animal_catogery";
-//                Toast.makeText(CatogeryMenuActivity.this,catogery,Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery",catogery);
-                    startActivity(intent);
-
-                }
-
-                if (index==5){
-                    catogery="animal_catogery";
-//                Toast.makeText(CatogeryMenuActivity.this,catogery,Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery",catogery);
-                    startActivity(intent);
-
-                }
-                if (index==6){
-                    String NEWcTOGerY="numbers_catogery";
-//                Toast.makeText(CatogeryMenuActivity.this,catogery,Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery","numbers_catogery");
-                    startActivity(intent);
-
-
-
-                }
-                if (index==7){
-
-                    catogery="animal_catogery";
-//                Toast.makeText(CatogeryMenuActivity.this,catogery,Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(CatogeryMenuActivity.this,MainActivity.class);
-                    intent.putExtra("catogery",catogery);
-                    startActivity(intent);
-                }
 
 
 
@@ -191,7 +231,7 @@ public class CatogeryMenuActivity extends AppCompatActivity {
 
             }
         });
- //        if (text != null) text.setText("I'm changed!");
+
 
     }
 
