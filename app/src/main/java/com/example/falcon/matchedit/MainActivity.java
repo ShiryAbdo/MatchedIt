@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
     int score  ,checkScore;
     SharedPreferences.Editor editor;
     Typewriter nameOfDrage ;
+    Locale loc;
+    TextView textChecke ;
+    TextToSpeech   t2 ;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -92,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         butterfly = new Butterfly();
         boolean check =prefs.getBoolean("firstRun", true);
         nameOfDrage =(Typewriter)findViewById(R.id.nameOfDrage);
+        textChecke =(TextView)findViewById(R.id.textChecke);
 
         if (check==true) {
             count= 0;
@@ -105,6 +109,15 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+
+      loc  = new Locale("ar");
+/*  under API 20 */
+//        tts.setLanguage(loc);
+
+/* over API 21 */
+//        String voiceName = loc.toLanguageTag();
+//        final Voice voice = new Voice(voiceName, loc, Voice.QUALITY_HIGH, Voice.LATENCY_HIGH, false, null);
+
         t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
@@ -112,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
                 if(status != TextToSpeech.ERROR) {
                     t1.setSpeechRate((float) 0.5);
                     t1.setLanguage(Locale.US);
+//                    t1.setLanguage(loc);
+//                 t1.setVoice(voice);
 
                 }
             }
@@ -470,6 +485,7 @@ public class MainActivity extends AppCompatActivity {
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
                         view);
                 view.startDrag(data, shadowBuilder, view, 0);
+                view.setVisibility(View.VISIBLE);
                  return true;
             } else {
                 return false;
@@ -484,13 +500,12 @@ public class MainActivity extends AppCompatActivity {
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
             ImageView view = (ImageView) event.getLocalState();
-             switch (event.getAction()) {
+              switch (event.getAction()) {
                 case DragEvent.ACTION_DRAG_STARTED:
 
-//                        Toast.makeText(getApplicationContext(),"started",Toast.LENGTH_SHORT).show();
-                    if(view!=null){
+//
                         view.setVisibility(View.VISIBLE);
-                    }
+
 
                      break;
                 case DragEvent.ACTION_DRAG_ENTERED:
@@ -533,6 +548,7 @@ public class MainActivity extends AppCompatActivity {
                         int amStreamMusicMaxVol = am.getStreamMaxVolume(am.STREAM_MUSIC);
                         am.setStreamVolume(am.STREAM_MUSIC, amStreamMusicMaxVol, 0);
                         nameOfDrage.setCharacterDelay(150);
+                        textChecke.setText(toSpeak);
                         nameOfDrage.animateText(toSpeak);
 //                        nameOfDrage.setText("toSpeak");
                         t1.speak(toSpeak, TextToSpeech.LANG_MISSING_DATA, null);
@@ -545,7 +561,20 @@ public class MainActivity extends AppCompatActivity {
 
                                 if (num==score){
 //                            Toast.makeText(getApplicationContext(),"congratulations",Toast.LENGTH_SHORT).show();
-                                    t1.speak("will done",TextToSpeech.QUEUE_ADD,null);
+                                   t2=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+                                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                                        @Override
+                                        public void onInit(int status) {
+                                            if(status != TextToSpeech.ERROR) {
+                                                t2.setSpeechRate((float) 0.5);
+//                                                t2.setLanguage(Locale.US);
+                                          t2.setLanguage(loc);
+//                                              t1.setVoice(voice);
+
+                                            }
+                                        }
+                                    });
+                                     t2.speak("أحسنت",TextToSpeech.QUEUE_ADD,null);
 
                                     AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(MainActivity.this, R.style.TransparentDialog));
                                     View alertView;
@@ -684,6 +713,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 //
                     }else{
+                        view.setVisibility(View.VISIBLE);
                         Toast.makeText(getApplicationContext()," note done",Toast.LENGTH_SHORT).show();
                     }
 //
@@ -691,11 +721,14 @@ public class MainActivity extends AppCompatActivity {
 //
 
                 case DragEvent.ACTION_DRAG_ENDED:
-//                    if(view!=null){
+                    if(textChecke.getText().toString()==(((ImageView)view).getTag())){
                         view.setVisibility(View.GONE);
-//                    }
+                        Toast.makeText(getApplicationContext(),textChecke.getText().toString(),Toast.LENGTH_SHORT).show();
 
-//                      Toast.makeText(getApplicationContext(),"ended",Toast.LENGTH_SHORT).show();
+                    }else {
+                        view.setVisibility(View.VISIBLE);
+                    }
+
 
                     break;
                 default:
@@ -727,4 +760,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+
+
 }
